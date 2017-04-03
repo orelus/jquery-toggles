@@ -64,14 +64,18 @@ https://github.com/simontabor/jquery-toggles / http://simontabor.com/labs/toggle
       }, opts || {}, dataOpts);
 
       el.data('toggles', self);
+	  
+      // make checkbox a jquery element
+      var checkbox = $(opts['checkbox']);
+	  
+	    // if is associate with object, get status
+	    if(opts['checkbox'] != null)
+		    opts['on'] = checkbox.is(':checked');
 
       // set active to the opposite of what we want, so toggle will run properly
       var active = !opts['on'];
 
       var selectType = opts['type'] === 'select';
-
-      // make checkbox a jquery element
-      var checkbox = $(opts['checkbox']);
 
       var clicker = opts['clicker'] && $(opts['clicker']);
 
